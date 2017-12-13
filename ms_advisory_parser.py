@@ -66,11 +66,11 @@ def extract_value_from_dict(json_dict):
 def export_to_csv(csv_info):
     table_headline = ['cveNumber', 'cveTitle', 'name', 'description', 'exploited and publiclyDisclosed', 'impact and severity', 'vectorString']
 
-    with open(OUTPUT_FILE, 'a') as f:
-        writecsv = csv.writer(f, lineterminator="\n")
+    with open(OUTPUT_FILE, 'a', newline='', encoding='utf-16') as f:
+        writecsv = csv.writer(f, dialect='excel', delimiter='\t', quoting=csv.QUOTE_ALL)
         writecsv.writerow(table_headline)
         for i in (range(len(csv_info))):
-            writecsv = csv.writer(f, lineterminator="\n")
+            writecsv = csv.writer(f, dialect='excel', delimiter='\t', quoting=csv.QUOTE_ALL)
             writecsv.writerow(csv_info[i])
 
 
